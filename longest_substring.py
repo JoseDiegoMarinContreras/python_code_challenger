@@ -1,6 +1,3 @@
-from tracemalloc import start
-
-
 def length_of_longest_substring(s: str) -> int:
     indexes = {}
     start_index = 0
