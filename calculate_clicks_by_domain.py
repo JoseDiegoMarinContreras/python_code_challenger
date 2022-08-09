@@ -71,7 +71,7 @@ counts = [ "900,google.com",
     "1,mobile.sports",
     "1,google.co.uk"]
 
-print(calculate_clicks_by_domain(counts))
+print(calculate_clicks_by_domain(domains=counts))
 
 """
  new_counts = counts = [ "900,google.com",
