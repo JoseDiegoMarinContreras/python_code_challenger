@@ -14,36 +14,32 @@ class ListNode:
 
 
 def add_two_numbers(l1, l2):
-    pointer = result = ListNode()
-    op1 = l1
-    op2 = l2
+    root = cursor = ListNode()
     carry = 0
-    while op1 or op2:
-        sumatory = (op1.val if op1 else 0) + (op2.val if op2 else 0) + carry
-        pointer.next = ListNode(sumatory%10)
-        carry = sumatory // 10
-        pointer = pointer.next
-        op1 = op1.next if op1 else None
-        op2 = op2.next if op2 else None
-    if carry == 1:
-        pointer.next = ListNode(1)
+    while l1 or l2:
+        val1 = val2 = 0
+        if l1:
+            val1 = l1.val
+            l1 = l1.next
+        if l2:
+            val2 = l2.val
+            l2 = l2.next
+            
+        summatory = val1 + val2 + carry
+        carry = summatory // 10
+        cursor.next = ListNode(summatory%10)
+        cursor = cursor.next
+    return root.next
 
-    return result.next
+# 3 -> 4 -> 2
+l1_n1 = ListNode(2)
+l1_n2 = ListNode(4, l1_n1)
+l1_n3 = ListNode(3, l1_n2)
 
-# 9 -> 9 -> 9 -> 9 -> 9 -> 9 -> 9
-l1_n1 = ListNode(9)
-l1_n2 = ListNode(9, l1_n1)
-l1_n3 = ListNode(9, l1_n2)
-l1_n4 = ListNode(9, l1_n3)
-l1_n5 = ListNode(9, l1_n4)
-l1_n6 = ListNode(9, l1_n5)
-l1_n7 = ListNode(9, l1_n6)
-
-# 9 -> 9 -> 9 -> 9
-l2_n1 = ListNode(9)
-l2_n2 = ListNode(9, l2_n1)
-l2_n3 = ListNode(9, l2_n2)
-l2_n4 = ListNode(9, l2_n3)
+# 4 -> 6 -> 5
+l2_n1 = ListNode(5)
+l2_n2 = ListNode(6, l2_n1)
+l2_n3 = ListNode(4, l2_n2)
 
 # 7 -> 0 -> 8
 print(add_two_numbers(l1_n3, l2_n3))
