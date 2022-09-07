@@ -1,3 +1,7 @@
+"""
+Given a string s, return the longest palindromic substring in s.
+"""
+
 def is_palindrome(s: str) -> bool:
     return s == s[::-1]
 
