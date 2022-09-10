@@ -5,17 +5,8 @@ For example, 121 is a palindrome while 123 is not.
 """
 
 def isPalindrome(x: int) -> bool:
-    if x < 0:
-        return False
-    
-    x2 = 0
-    aux_x = x
-    while(aux_x > 0):
-        x2 *= 10
-        x2 += aux_x%10
-        aux_x //= 10
-
-    return x == x2
+    s = str(x)
+    return s == s[::-1]
 
 #True
 x = 12321
